@@ -6,7 +6,7 @@ import org.apache.kafka.common.serialization.StringSerializer;
 
 import java.util.Properties;
 
-public class KafkaProducerManager {
+public class KafkaManager {
     private static final String BOOTSTRAP_SERVERS = "localhost:9092";
 
     public static KafkaProducer<String, String> getStringStringKafkaProducer() {

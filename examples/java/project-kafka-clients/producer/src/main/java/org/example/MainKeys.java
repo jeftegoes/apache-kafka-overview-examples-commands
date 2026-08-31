@@ -12,12 +12,12 @@ public class MainKeys {
     private static final String TOPIC = "my-test-topic";
 
     static void main() throws InterruptedException {
-        KafkaProducer<String, String> producer = KafkaProducerManager.getStringStringKafkaProducer();
+        KafkaProducer<String, String> producer = KafkaManager.getStringStringKafkaProducer();
 
         TopicManager.createTopicIfNotExists(BOOTSTRAP_SERVERS, TOPIC, 5, (short) 1);
 
         for (int j = 0; j < 5; j++) {
-            for (int i = 0; i < 90; i++) {
+            for (int i = 0; i < 20; i++) {
                 String key = "key-" + i + "-" + j;
                 String value = "Hello Kafka 4.0 - Message #" + i;
 

@@ -11,10 +11,10 @@ public class MainCallback {
 
     static void main() throws InterruptedException {
 
-        KafkaProducer<String, String> producer = KafkaProducerManager.getStringStringKafkaProducer();
+        KafkaProducer<String, String> producer = KafkaManager.getStringStringKafkaProducer();
 
-        for (int j = 0; j < 10; j++) {
-            for (int i = 0; i < 30; i++) {
+        for (int j = 0; j < 5; j++) {
+            for (int i = 0; i < 20; i++) {
                 String topic = "demo-topic";
                 String value = "Hello Kafka 4.0 - Message #" + i;
 
