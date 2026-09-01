@@ -3,6 +3,7 @@ package org.example;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
+import org.apache.kafka.common.errors.WakeupException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,7 +21,7 @@ public class MainShutdown {
         final Thread mainThread = Thread.currentThread();
 
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-            log.info("\nShutdown signal detected. Closing consumer...");
+            log.info("Shutdown signal detected. Closing consumer...");
             consumer.wakeup();
             try {
                 mainThread.join();
@@ -30,7 +31,6 @@ public class MainShutdown {
         }));
 
         try {
-
             consumer.subscribe(Arrays.asList(TOPIC));
 
             while (true) {
@@ -43,9 +43,13 @@ public class MainShutdown {
                     log.info("Partition: {} | Offset: {}", record.partition(), record.offset());
                 }
             }
-
-        } catch (WakeupExcetion e) {
-
+        } catch (WakeupException e) {
+            log.info("Consumer is starting to shut down.");
+        } catch (Exception e) {
+            log.error("Unexpected exception in the Consumer: {}", e.getMessage());
+        } finally {
+            consumer.close();
+            log.info("The Consumer is now gracefully shut down.");
         }
     }
 }

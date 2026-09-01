@@ -119,8 +119,8 @@
 
 - Topics are split in partitions (Example: 100 partitions):
   - Messages within each partition are ordered.
-  - Each message within a partitions gets an incremental id, called offset.
-- Kafka topics are immutable: once data is written to a partition, it cannot be changed.
+  - Each message within a partitions gets an incremental id, called `offset`.
+- **Kafka topics are immutable:** Once data is written to a partition, it cannot be changed.
 - Kafka Consumer Offsets are stored in Kafka.
 
 ## 4.3. Topic example: truck_gps
@@ -262,7 +262,7 @@
 
 - Topics should have a replication factor > 1 (usually between 2 and 3).
 - This way if a broker is down, another broker can serve the data.
-- Example: Topic-A with 2 partitions and replication factor of 2.
+- **Example:** Topic-A with 2 partitions and replication factor of 2.
 
 ## 9.2. Concept of Leader for a Partition
 
@@ -388,7 +388,7 @@
 - You are free to come up with your own guideline.
 - From: https://cnr.sh/essays/how-paint-bike-shed-kafka-topic-naming-conventions
   - `<message type>.<dataset name>.<data name>.<data format>`
-  - Message type:
+  - **Message type**
     - logging
     - queuing
     - tracking
@@ -400,7 +400,7 @@
   - The dataset name is analogous to a database name in traditional RDBMS systems. It's used as a category to group topics together.
   - The data name field is analogous to a table name in traditional RDBMS systems, though it's fine to include further dotted notation if developers wish to impose their own hierarchy within the dataset namespace.
   - The data format for example .avro, .json, .text, .protobuf, .csv, .log.
-  - Use snake_case.
+  - Use `snake_case`.
 
 # 15. Commands
 
@@ -452,6 +452,7 @@
 
 # 16. Ui Application
 
+- Kafka UI
 - Conduktor UI
   - Desktop
   - Free
