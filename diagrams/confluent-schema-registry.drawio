@@ -1,0 +1,48 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.6.6 Chrome/144.0.7559.236 Electron/40.8.4 Safari/537.36" version="29.6.6">
+  <diagram name="Page-1" id="loDhQYJJQs0b5--ThxJV">
+    <mxGraphModel dx="1224" dy="1219" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="K5ENNokMcwrHXrgTPQM--5" edge="1" parent="1" source="K5ENNokMcwrHXrgTPQM--1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="K5ENNokMcwrHXrgTPQM--2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="K5ENNokMcwrHXrgTPQM--6" connectable="0" parent="K5ENNokMcwrHXrgTPQM--5" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Avro Data" vertex="1">
+          <mxGeometry relative="1" x="0.0143" y="-2" as="geometry">
+            <mxPoint y="-2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="K5ENNokMcwrHXrgTPQM--9" edge="1" parent="1" source="K5ENNokMcwrHXrgTPQM--1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="K5ENNokMcwrHXrgTPQM--4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="290" y="465" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="K5ENNokMcwrHXrgTPQM--1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Java&lt;div&gt;Producers&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="230" y="365" as="geometry" />
+        </mxCell>
+        <mxCell id="K5ENNokMcwrHXrgTPQM--7" edge="1" parent="1" source="K5ENNokMcwrHXrgTPQM--2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="K5ENNokMcwrHXrgTPQM--3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="K5ENNokMcwrHXrgTPQM--8" connectable="0" parent="K5ENNokMcwrHXrgTPQM--7" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&amp;nbsp;Avro Data&amp;nbsp;" vertex="1">
+          <mxGeometry relative="1" y="1" as="geometry">
+            <mxPoint y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="K5ENNokMcwrHXrgTPQM--2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Kafka Cluster" vertex="1">
+          <mxGeometry height="60" width="120" x="490" y="365" as="geometry" />
+        </mxCell>
+        <mxCell id="K5ENNokMcwrHXrgTPQM--3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Java Consumers" vertex="1">
+          <mxGeometry height="60" width="120" x="750" y="365" as="geometry" />
+        </mxCell>
+        <mxCell id="K5ENNokMcwrHXrgTPQM--10" edge="1" parent="1" source="K5ENNokMcwrHXrgTPQM--4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="K5ENNokMcwrHXrgTPQM--3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="K5ENNokMcwrHXrgTPQM--4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="Kafka Schema Registry" vertex="1">
+          <mxGeometry height="40" width="120" x="490" y="445" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

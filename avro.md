@@ -23,18 +23,14 @@
 
 # 1. The need for a schema registry
 
-- Kafka takes bytes as an input and publishes them
-- No data verification
-
-TODO: DIAGRAM
-Producer → Kafka → Application 1
-Producer → Kafka → Application 2
-
-- What if the producer sends bad data?
+- Kafka takes bytes as an input and publishes them.
+- No data verification.
+  - ![Schema Registry](/images/schema-registry.png)
+- What if the **producer** sends bad data?
 - What if a field gets renamed?
 - What if the data format changes from one day to another?
-  - The Consumers Break!!!
-- We need data to be self describable
+  - **The Consumers Break!!!**
+- We need data to be self describable.
 - We need to be able to evolve data without breaking downstream consumers.
 - We need schemas... and a schema registry!
 - What if the Kafka Brokers were verifying the messages they receive?
@@ -43,8 +39,11 @@ Producer → Kafka → Application 2
   - Kafka takes bytes as an input without even loading them into memory (that's called zero copy).
   - Kafka distributes bytes.
   - As far as Kafka is concerned, it doesn't even know if your data is an integer, a string etc.
+
+# 2. Kafka Ecosystem: Confluent Schema Registry
+
 - The Schema Registry has to be a separate components.
-- Producers and Consumers need to be able to talk to it.
+- **Producers** and **Consumers** need to be able to talk to it.
 - The Schema Registry must be able to reject bad data.
 - **A common data format must be agreed upon**
   - It needs to support schemas
@@ -52,16 +51,7 @@ Producer → Kafka → Application 2
   - It needs to be lightweight
 - Enter... the Confluent Schema Registry.
 - And Apache Avro as the data format..
-
-# 2. Kafka Ecosystem: Confluent Schema Registry
-
-TODO: DIAGRAM
-
-Java Producers → Avro Data → Kafka Cluster → Avro Data → Java Consumers
-
-Java Producers → Register Schema → Kafka Schema Registry
-
-Java Consumers → Retrieve Schema → Kafka Schema Registry
+  ![Confluent Schema Registry](/images/confluent-schema-registry.png)
 
 # 3. An Evolution of data
 
