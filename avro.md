@@ -19,7 +19,16 @@
   - [4.6. Maps](#46-maps)
   - [4.7. Unions](#47-unions)
   - [4.8. Logical Types](#48-logical-types)
-- [Avro](#avro)
+- [5. Avro Java Schemas](#5-avro-java-schemas)
+  - [5.1. Generic Record](#51-generic-record)
+  - [5.2. Specific Record](#52-specific-record)
+- [6. Schema Evolution Business problem](#6-schema-evolution-business-problem)
+  - [6.1. Backward Compatible](#61-backward-compatible)
+  - [6.2. Forward Compatible](#62-forward-compatible)
+  - [6.3. Fully Compatible](#63-fully-compatible)
+  - [6.4. Not Compatible](#64-not-compatible)
+  - [6.5. Advice when writing an Avro schema](#65-advice-when-writing-an-avro-schema)
+- [7. Schema Registry](#7-schema-registry)
 
 # 1. The need for a schema registry
 
@@ -263,4 +272,66 @@
 - **Note:** Logical types are new (1.7.7), not fully supported by all languages and don't play nicely with unions.
 - Be careful when using them!
 
-# Avro
+# 5. Avro Java Schemas
+
+## 5.1. Generic Record
+
+- A **GenericRecord** is used to create an Avro object from a schema, the schema being referenced as:
+  - A file.
+  - A strin.g
+- It's not the most recommended way of creating Avro objects because things can fail at runtime, but it is the most simple way.
+
+## 5.2. Specific Record
+
+- A **SpecificRecord** is also an Avro object, but it is obtained using code generation from an Avro schema.
+- There are different plugins for different build tools (`gradle`, `maven`, `sbt`) etc.
+  - Avro Schema → Maven Plugin → Generated Code
+
+# 6. Schema Evolution Business problem
+
+- Avro enables us to evolve our schema over time, to adapt with the changes from the business.
+- **For example:** Today we're asking for the **First Name** and **Last Name** of our customer, and that's our v1 of the schema, but tomorrow we ask for their phone number.
+  - That would be our v2 of our schema.
+- We want to be able to make the schema evolve without breaking programs reading our data.
+- **There are 4 kinds of schema evolution**
+  - **Backward:** A backward compatible change is when a new schema can be used to read old data.
+  - **Forward:** A forward compatible change is when an old schema can be used to read new data.
+  - **Full:** Which is both backward and forward.
+  - **Breaking:** Which is none of those.
+
+## 6.1. Backward Compatible
+
+- **Backward:** A backward compatible change is when a new schema can be used to read old data.
+- We can read old data with the new schema, thanks to a default value. In case the field doesn't exist, Avro will use the default value.
+- We want backwards when we want to successfully perform queries (Hive-SQL for example) over old and new data using a new schema.
+
+## 6.2. Forward Compatible
+
+- **Forward:** A forward compatible change is when an old schema can be used to read new data.
+- We can read new data with the old schema. Avro will just ignore new fields. Deleting fields without defaults is not forward compatible.
+- We want forward compatible when we want to make a data stream evolve without changing our downstream consumers.
+
+## 6.3. Fully Compatible
+
+- **Full:** which is both **Backward** and **Forward**.
+- Only add fields with defaults.
+- Only remove fields that have defaults.
+- When writing your schema changes, most of the time you want to target full compatibility (and it's not too hard, is it?).
+
+## 6.4. Not Compatible
+
+- Here are examples of changes that are NOT compatible:
+  - Adding / Removing elements from an Enum.
+  - Changing the type of a field (string → int for example).
+  - Renaming a required field (without default).
+
+## 6.5. Advice when writing an Avro schema
+
+- Make your primary key required.
+- Give default values to all the fields that could be removed in the future.
+- Be very careful when using Enums as they can't evolve over time.
+- Don't rename fields and call aliases instead (other names).
+- When evolving a schema, **ALWAYS** give default values.
+- When evolving a schema, **NEVER** delete a required field.
+
+# 7. Schema Registry

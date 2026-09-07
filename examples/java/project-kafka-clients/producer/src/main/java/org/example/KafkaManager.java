@@ -16,6 +16,7 @@ public class KafkaManager {
         properties.setProperty(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         properties.setProperty(ProducerConfig.BATCH_SIZE_CONFIG, "400");
 
+
         KafkaProducer<String, String> producer = new KafkaProducer<>(properties);
         return producer;
     }
