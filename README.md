@@ -53,6 +53,7 @@
   - [15.4. Consumer groups](#154-consumer-groups)
 - [16. Ui Application](#16-ui-application)
 - [17. Avro Schema Registry](#17-avro-schema-registry)
+- [18. Confluent REST Proxy](#18-confluent-rest-proxy)
 
 # 1. Types of problems organisations are facing with manually integration
 
@@ -461,4 +462,8 @@
 
 # 17. Avro Schema Registry
 
+- `http://demo-kafka:8081`
+
 [Avro Schema Registry](/avro.md)
+
+# 18. Confluent REST Proxy

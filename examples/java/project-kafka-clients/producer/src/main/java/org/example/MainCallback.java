@@ -25,7 +25,7 @@ public class MainCallback {
                         log.info("Sent successfully! Topic: {} | Partition: {} | Offset: {}",
                                 metadata.topic(), metadata.partition(), metadata.offset());
                     } else {
-                        System.err.println("Error while producing message: " + exception.getMessage());
+                        log.error("Error while producing message: {}", exception.getMessage());
                     }
                 });
             }

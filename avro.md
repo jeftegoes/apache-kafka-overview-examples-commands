@@ -285,14 +285,14 @@
 
 - A **SpecificRecord** is also an Avro object, but it is obtained using code generation from an Avro schema.
 - There are different plugins for different build tools (`gradle`, `maven`, `sbt`) etc.
-  - Avro Schema → Maven Plugin → Generated Code
+  - Avro Schema -> Maven Plugin -> Generated Code
 
 # 6. Schema Evolution Business problem
 
 - Avro enables us to evolve our schema over time, to adapt with the changes from the business.
 - **For example:** Today we're asking for the **First Name** and **Last Name** of our customer, and that's our v1 of the schema, but tomorrow we ask for their phone number.
   - That would be our v2 of our schema.
-- We want to be able to make the schema evolve without breaking programs reading our data.
+  - We want to be able to make the schema evolve without breaking programs reading our data.
 - **There are 4 kinds of schema evolution**
   - **Backward:** A backward compatible change is when a new schema can be used to read old data.
   - **Forward:** A forward compatible change is when an old schema can be used to read new data.
@@ -302,13 +302,15 @@
 ## 6.1. Backward Compatible
 
 - **Backward:** A backward compatible change is when a new schema can be used to read old data.
-- We can read old data with the new schema, thanks to a default value. In case the field doesn't exist, Avro will use the default value.
-- We want backwards when we want to successfully perform queries (Hive-SQL for example) over old and new data using a new schema.
+- We can read old data with the new schema, thanks to a **default** value.
+  - In case the field doesn't exist, Avro will use the default value.
+- We want **backwards** when we want to successfully perform queries (Hive-SQL for example) over old and new data using a new schema.
 
 ## 6.2. Forward Compatible
 
 - **Forward:** A forward compatible change is when an old schema can be used to read new data.
-- We can read new data with the old schema. Avro will just ignore new fields. Deleting fields without defaults is not forward compatible.
+- We can read new data with the old schema. Avro will just ignore new fields.
+  - Deleting fields **without defaults** is not forward compatible.
 - We want forward compatible when we want to make a data stream evolve without changing our downstream consumers.
 
 ## 6.3. Fully Compatible
@@ -322,7 +324,7 @@
 
 - Here are examples of changes that are NOT compatible:
   - Adding / Removing elements from an Enum.
-  - Changing the type of a field (string → int for example).
+  - Changing the type of a field (string -> `int` for example).
   - Renaming a required field (without default).
 
 ## 6.5. Advice when writing an Avro schema
