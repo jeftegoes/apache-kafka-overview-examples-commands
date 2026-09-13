@@ -467,3 +467,5 @@
 [Avro Schema Registry](/avro.md)
 
 # 18. Confluent REST Proxy
+
+[Confluent REST Proxy](/confluent-rest-proxy.md)
