@@ -129,7 +129,6 @@
 ## 3.4. Avro
 
 - Avro is defined by a schema (schema is written in JSON).
-- To get started, you can view Avro as JSON with a schema attached to it.
 - **Advantages**
   - Data is fully typed.
   - Data is compressed automatically (less CPU usage).
@@ -147,7 +146,7 @@
 - At Kafka's level, what we care about is someone being self explicit and fully described as we're dealing with streaming (so no ORC Parquet etc).
 - Avro has good support from Hadoop based technologies like Hive.
 - Avro has been chosen as the only supported data format from Confluent Schema Registry so we'll just go along with that!
-- There is no need to compare performance etc unless you can prove that Avro is indeed a performance roadblock in your programs (and that won't happen unless you reach insane volumes of 1 million messages per sec).
+- There is no need to compare performance etc unless we can prove that Avro is indeed a performance roadblock in our programs (and that won't happen unless we reach insane volumes of 1 million messages per sec).
 
 # 4. Avro
 
@@ -167,12 +166,12 @@
 
 - Record Schemas are defined using JSON.
 - **It has some common fields**
-  - `Name` - Name of your schema.
+  - `Name` - Name of our schema.
   - `Namespace` - (equivalent of package in Java).
-  - `Doc` - Documentation to explain your schema.
-  - `Aliases` - Optional other names for your schema.
+  - `Doc` - Documentation to explain our schema.
+  - `Aliases` - Optional other names for our schema.
   - **Fields**
-    - `Name` - Name of your field.
+    - `Name` - Name of our field.
     - `Doc` - Documentation for that field.
     - `Type` - Data type for that field (can be a primitive type).
     - `Default` - Default value for that field.
@@ -189,7 +188,7 @@
 
 ## 4.4. Enums
 
-- These are for fields you know for sure that their values can be enumerated.
+- These are for fields we know for sure that their values can be enumerated.
 - **Example:** Customer status.
   - Bronze
   - Silver
@@ -202,11 +201,11 @@
     "symbols": ["BRONZE", "SILVER", "GOLD"]
   }
   ```
-- Note: Once an enum is set, changing the enum values is forbidden if you want to maintain compatibility.
+- Note: Once an enum is set, changing the enum values is forbidden if we want to maintain compatibility.
 
 ## 4.5. Arrays
 
-- Arrays are a way for you to represent a list of undefined size of items that all share the same schema.
+- Arrays are a way for us to represent a list of undefined size of items that all share the same schema.
 - **Example:** Customer Emails (multiple emails).
   - ["john.doe@gmail.com", "jon92@hotmail.com"]
 - **Example**
@@ -216,7 +215,7 @@
     "items": "string"
   }
   ```
-- **Note:** The schema can be anything you want so you can use any existing schema for it.
+- **Note:** The schema can be anything we want so we can use any existing schema for it.
 
 ## 4.6. Maps
 
@@ -318,7 +317,7 @@
 - **Full:** which is both **Backward** and **Forward**.
 - Only add fields with defaults.
 - Only remove fields that have defaults.
-- When writing your schema changes, most of the time you want to target full compatibility (and it's not too hard, is it?).
+- When writing our schema changes, most of the time we want to target full compatibility (and it's not too hard, is it?).
 
 ## 6.4. Not Compatible
 
@@ -329,7 +328,7 @@
 
 ## 6.5. Advice when writing an Avro schema
 
-- Make your primary key required.
+- Make our **primary key** required.
 - Give default values to all the fields that could be removed in the future.
 - Be very careful when using Enums as they can't evolve over time.
 - Don't rename fields and call aliases instead (other names).

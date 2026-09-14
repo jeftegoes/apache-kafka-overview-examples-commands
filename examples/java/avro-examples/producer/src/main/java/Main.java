@@ -12,6 +12,9 @@ import java.util.Properties;
 public class Main {
     private static final Logger log = LoggerFactory.getLogger(Main.class);
     private static final String BOOTSTRAP_SERVERS = "localhost:9092";
+    private static final String SCHEMA_REGISTRY_URL_KEY = "schema.registry.url";
+    private static final String SCHEMA_REGISTRY_URL = "http://localhost:8081";
+    private static final String TOPIC = "customer-avro-topic";
 
     static void main() {
         System.setProperty(
@@ -23,11 +26,10 @@ public class Main {
         properties.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, BOOTSTRAP_SERVERS);
         properties.setProperty(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         properties.setProperty(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, KafkaAvroSerializer.class.getName());
-        properties.setProperty("schema.registry.url", "http://127.0.0.1:8081");
+        properties.setProperty(SCHEMA_REGISTRY_URL_KEY, SCHEMA_REGISTRY_URL);
 
 
         KafkaProducer<String, Customer> kafkaProducer = new KafkaProducer<>(properties);
-        String topic = "customer-avro-topic";
 
         Customer customer = Customer.newBuilder()
                 .setAge(25)
@@ -37,7 +39,7 @@ public class Main {
                 .setWeight(30.2f)
                 .build();
 
-        ProducerRecord<String, Customer> producerRecord = new ProducerRecord<>(topic, customer);
+        ProducerRecord<String, Customer> producerRecord = new ProducerRecord<>(TOPIC, customer);
 
         kafkaProducer.send(producerRecord, (RecordMetadata metadata, Exception exception) -> {
             if (exception == null) {
