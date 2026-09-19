@@ -9,7 +9,7 @@
 - [3. Overview](#3-overview)
 - [4. Basic concepts](#4-basic-concepts)
   - [4.1. Topics](#41-topics)
-  - [4.2. Partitions and offsets](#42-partitions-and-offsets)
+  - [4.2. Partitions and Offsets](#42-partitions-and-offsets)
   - [4.3. Topic example: truck\_gps](#43-topic-example-truck_gps)
   - [4.4. Important notes](#44-important-notes)
 - [5. Producers and message keys](#5-producers-and-message-keys)
@@ -46,6 +46,7 @@
     - [14.1.2. Choosing the replication factor](#1412-choosing-the-replication-factor)
   - [14.2. Cluster guidelines](#142-cluster-guidelines)
   - [14.3. Topic naming conventions](#143-topic-naming-conventions)
+- [Kafka Connect](#kafka-connect)
 - [15. Commands](#15-commands)
   - [15.1. Topics commands](#151-topics-commands)
   - [15.2. Producer commands](#152-producer-commands)
@@ -108,29 +109,31 @@
 ## 4.1. Topics
 
 - **Topics:** A particular stream of data.
-- **Example:** Logs, purchases, twitter_tweets, trucks_gps.
+  - **Example:** Logs, purchases, twitter_tweets, trucks_gps.
 - Like a table in a database (without all the constraint).
-- You can have as many topics as you want.
-- A topic is identified by its name.
+- We can have as many topics as we want.
+- A topic is identified by its **name**.
 - Any kind of message format.
-- The sequence of messages is called a data stream.
-- You cannot query topics, instead, use Kafka Producers to send data and Kafka Consumers to read the data.
-- **You only need to connect to one broker (any broker) and just provide the topic name you want to read from. Kafka will route your calls to the appropriate brokers and partitions for you!**
+- The sequence of messages is called a **data stream**.
+- We cannot query topics, instead, use Kafka Producers to send data and Kafka Consumers to read the data.
+- **We only need to connect to one broker (any broker) and just provide the topic name we want to read from. Kafka will route our calls to the appropriate brokers and partitions for us!**
 
-## 4.2. Partitions and offsets
+## 4.2. Partitions and Offsets
 
 - Topics are split in partitions (Example: 100 partitions):
   - Messages within each partition are ordered.
   - Each message within a partitions gets an incremental id, called `offset`.
 - **Kafka topics are immutable:** Once data is written to a partition, it cannot be changed.
 - Kafka Consumer Offsets are stored in Kafka.
+  ![Topics, Partitions and Offsets](/images/topic-partitions-offsets.png)
 
 ## 4.3. Topic example: truck_gps
 
-- Say you have a fleet of trucks; each truck report its GPS position to Kafka.
+- Say we have a fleet of trucks; each truck report its GPS position to Kafka.
 - Each truck will send a message to Kafka every 20 seconds, each message will contain the truck ID and the truck position (latitude and longitude).
-- You can have a topic trucks_gps that contain the position of all trucks.
+- We can have a topic `trucks_gps` that contain the position of all trucks.
 - We choose to create that topic with 10 partitions (arbitrary number).
+  ![Topic example: truck_gps](/images/topic-truck-gps-example.png)
 
 ## 4.4. Important notes
 
@@ -147,16 +150,17 @@
 
 ## 5.1. Producers
 
-- Producers write data to topics (which are made of partitions).
+- Producers write data to `topics` (which are made of partitions).
 - Producers know to which partition to write to (and which Kafka broker has it).
 - In case of Kafka broker failures, Producers will automatically recover.
+  ![Producers](/images/kafka-producer.png)
 
 ### 5.1.1. Message keys
 
 - Producers can choose to send a **key** with the message (string, number binary, etc...).
 - If `key = null`, data is sent round robin (partition 0, then 1, then 2...).
-- If `key != null`, then all messages for that key will always go to the same partition (hashing).
-- A key are typically sent if you need message ordering for a specific field (e.g. food_truck_id).
+- If `key != null`, then all messages for that key will always go to the same partition **(hashing)**.
+- A key are typically sent if we need message ordering for a specific field (e.g. food_truck_id).
 
 ## 5.2. Kafka messages anatomy
 
@@ -403,6 +407,8 @@
   - The data name field is analogous to a table name in traditional RDBMS systems, though it's fine to include further dotted notation if developers wish to impose their own hierarchy within the dataset namespace.
   - The data format for example .avro, .json, .text, .protobuf, .csv, .log.
   - Use `snake_case`.
+
+# Kafka Connect
 
 # 15. Commands
 
