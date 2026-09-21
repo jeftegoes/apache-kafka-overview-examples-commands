@@ -11,7 +11,6 @@ public class KafkaConfig {
     NewTopic createTopic() {
         return TopicBuilder.name("product-created-events-topic")
                 .partitions(3)
-                .replicas(3)
                 .build();
     }
 }
