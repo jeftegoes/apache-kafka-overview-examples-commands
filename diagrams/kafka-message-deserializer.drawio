@@ -1,0 +1,40 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.6.6 Chrome/144.0.7559.236 Electron/40.8.4 Safari/537.36" version="29.6.6">
+  <diagram name="Page-1" id="ZQrQI0iV-InJVMkVRzH_">
+    <mxGraphModel dx="1090" dy="977" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="pU2pldtlMHamGR6yIwW1-11" edge="1" parent="1" source="pU2pldtlMHamGR6yIwW1-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="pU2pldtlMHamGR6yIwW1-14" value="bytes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pU2pldtlMHamGR6yIwW1-12" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#6a00ff;strokeColor=#3700CC;fontColor=#ffffff;" value="&lt;b&gt;Key - binary&lt;br&gt;&lt;/b&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(255, 255, 255), rgb(18, 18, 18));&quot;&gt;00110001 00110010 00110011&lt;/span&gt;" vertex="1">
+          <mxGeometry height="115" width="120" x="425" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="pU2pldtlMHamGR6yIwW1-13" edge="1" parent="1" source="pU2pldtlMHamGR6yIwW1-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="pU2pldtlMHamGR6yIwW1-15" value="int">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pU2pldtlMHamGR6yIwW1-14" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#6a00ff;strokeColor=#3700CC;fontColor=#ffffff;" value="&lt;b&gt;KeyDeserializer=&lt;/b&gt;&lt;div&gt;&lt;b&gt;IntegerDeserializer&lt;/b&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="50" width="120" x="425" y="435" as="geometry" />
+        </mxCell>
+        <mxCell id="pU2pldtlMHamGR6yIwW1-15" parent="1" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fillColor=#6a00ff;strokeColor=#3700CC;fontColor=#ffffff;" value="&lt;b&gt;Key Object&lt;/b&gt;&lt;div&gt;123&lt;/div&gt;" vertex="1">
+          <mxGeometry height="45" width="120" x="425" y="565" as="geometry" />
+        </mxCell>
+        <mxCell id="pU2pldtlMHamGR6yIwW1-16" edge="1" parent="1" source="pU2pldtlMHamGR6yIwW1-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="pU2pldtlMHamGR6yIwW1-19" value="bytes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pU2pldtlMHamGR6yIwW1-17" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="&lt;b&gt;Key - binary&lt;br&gt;&lt;/b&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;01101000 01100101 01101100 01101100 01101111 00100000 01110111 01101111 01110010 01101100 01100100&lt;/span&gt;" vertex="1">
+          <mxGeometry height="115" width="120" x="555" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="pU2pldtlMHamGR6yIwW1-18" edge="1" parent="1" source="pU2pldtlMHamGR6yIwW1-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="pU2pldtlMHamGR6yIwW1-20" value="string">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pU2pldtlMHamGR6yIwW1-19" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="&lt;b&gt;ValueDeserializer=&lt;/b&gt;&lt;div&gt;&lt;b&gt;IntegerDeserializer&lt;/b&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="50" width="120" x="555" y="435" as="geometry" />
+        </mxCell>
+        <mxCell id="pU2pldtlMHamGR6yIwW1-20" parent="1" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fillColor=#e1d5e7;strokeColor=#9673a6;" value="&lt;b&gt;Value Object&lt;/b&gt;&lt;div&gt;&quot;hello world&quot;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="45" width="120" x="555" y="565" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

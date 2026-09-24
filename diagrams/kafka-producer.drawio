@@ -1,6 +1,6 @@
 <mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.6.6 Chrome/144.0.7559.236 Electron/40.8.4 Safari/537.36" version="29.6.6">
   <diagram name="Page-1" id="4Hqh5flyaS75zCuigEa-">
-    <mxGraphModel dx="2455" dy="1029" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+    <mxGraphModel dx="1224" dy="1219" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -261,10 +261,10 @@
         <mxCell id="VcOFq9rXlhBKtKcqegDr-63" parent="1" style="whiteSpace=wrap;html=1;" value="Producer" vertex="1">
           <mxGeometry height="60" width="100" x="145" y="395" as="geometry" />
         </mxCell>
-        <mxCell id="VcOFq9rXlhBKtKcqegDr-65" parent="1" style="whiteSpace=wrap;html=1;" value="&lt;div&gt;&lt;b&gt;Topic A / Partition 0&lt;/b&gt;&lt;/div&gt;" vertex="1">
+        <mxCell id="VcOFq9rXlhBKtKcqegDr-65" parent="1" style="whiteSpace=wrap;html=1;" value="&lt;div&gt;&lt;b&gt;Topic A / Partition 1&lt;/b&gt;&lt;/div&gt;" vertex="1">
           <mxGeometry height="30" width="130" x="405" y="410" as="geometry" />
         </mxCell>
-        <mxCell id="VcOFq9rXlhBKtKcqegDr-66" parent="1" style="whiteSpace=wrap;html=1;" value="&lt;div&gt;&lt;b&gt;Topic A / Partition 0&lt;/b&gt;&lt;/div&gt;" vertex="1">
+        <mxCell id="VcOFq9rXlhBKtKcqegDr-66" parent="1" style="whiteSpace=wrap;html=1;" value="&lt;div&gt;&lt;b&gt;Topic A / Partition 2&lt;/b&gt;&lt;/div&gt;" vertex="1">
           <mxGeometry height="30" width="130" x="405" y="450" as="geometry" />
         </mxCell>
         <mxCell id="VcOFq9rXlhBKtKcqegDr-70" edge="1" parent="1" source="VcOFq9rXlhBKtKcqegDr-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" value="&amp;nbsp;writes&amp;nbsp;">
@@ -281,6 +281,9 @@
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="955" y="465" as="targetPoint" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="6gRgTSNqhJd8KLdgRC0v-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1" value="This load is balanced to many brokers." vertex="1">
+          <mxGeometry height="30" width="120" x="135" y="470" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
