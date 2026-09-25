@@ -1,0 +1,43 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.6.6 Chrome/144.0.7559.236 Electron/40.8.4 Safari/537.36" version="29.6.6">
+  <diagram name="Page-1" id="i3ZWVUNm_PN1wEOGb0kQ">
+    <mxGraphModel dx="1224" dy="1226" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="nIOppcDcrIe12aMvTI1C-10" parent="1" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=bottom;fillColor=#6a00ff;fontColor=#ffffff;strokeColor=#3700CC;" value="consumer-group-application" vertex="1">
+          <mxGeometry height="90" width="450" x="325" y="458" as="geometry" />
+        </mxCell>
+        <mxCell id="Qe0gRgFrbLTI1ZLZpLy9-3" edge="1" parent="1" source="nIOppcDcrIe12aMvTI1C-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="nIOppcDcrIe12aMvTI1C-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nIOppcDcrIe12aMvTI1C-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#6a00ff;strokeColor=#3700CC;fontColor=#ffffff;" value="&lt;div&gt;&lt;b&gt;Topic A&lt;/b&gt;&lt;/div&gt;Partition 0" vertex="1">
+          <mxGeometry height="45" width="100" x="395" y="303" as="geometry" />
+        </mxCell>
+        <mxCell id="Qe0gRgFrbLTI1ZLZpLy9-4" edge="1" parent="1" source="nIOppcDcrIe12aMvTI1C-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="nIOppcDcrIe12aMvTI1C-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nIOppcDcrIe12aMvTI1C-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#6a00ff;strokeColor=#3700CC;fontColor=#ffffff;" value="&lt;div&gt;&lt;b&gt;Topic A&lt;/b&gt;&lt;/div&gt;Partition 1" vertex="1">
+          <mxGeometry height="45" width="100" x="505" y="303" as="geometry" />
+        </mxCell>
+        <mxCell id="Qe0gRgFrbLTI1ZLZpLy9-5" edge="1" parent="1" source="nIOppcDcrIe12aMvTI1C-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="nIOppcDcrIe12aMvTI1C-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nIOppcDcrIe12aMvTI1C-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#6a00ff;strokeColor=#3700CC;fontColor=#ffffff;" value="&lt;div&gt;&lt;b&gt;Topic A&lt;/b&gt;&lt;/div&gt;Partition 2" vertex="1">
+          <mxGeometry height="45" width="100" x="615" y="303" as="geometry" />
+        </mxCell>
+        <mxCell id="nIOppcDcrIe12aMvTI1C-7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Consumer 1" vertex="1">
+          <mxGeometry height="45" width="100" x="335" y="478" as="geometry" />
+        </mxCell>
+        <mxCell id="nIOppcDcrIe12aMvTI1C-8" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Consumer 2" vertex="1">
+          <mxGeometry height="45" width="100" x="445" y="478" as="geometry" />
+        </mxCell>
+        <mxCell id="nIOppcDcrIe12aMvTI1C-9" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Consumer 3" vertex="1">
+          <mxGeometry height="45" width="100" x="555" y="478" as="geometry" />
+        </mxCell>
+        <mxCell id="Qe0gRgFrbLTI1ZLZpLy9-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Consumer 4&lt;div&gt;(inactive)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="45" width="100" x="665" y="478" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

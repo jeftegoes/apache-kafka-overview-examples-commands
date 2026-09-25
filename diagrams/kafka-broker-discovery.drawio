@@ -1,0 +1,54 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.6.6 Chrome/144.0.7559.236 Electron/40.8.4 Safari/537.36" version="29.6.6">
+  <diagram name="Page-1" id="LSFuuZLctUE8mR-LRrwD">
+    <mxGraphModel dx="1020" dy="1022" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="dGR3X8DVnyzm8ExxdQ5J-7" parent="1" style="whiteSpace=wrap;html=1;" value="Kafka Cluster" vertex="1">
+          <mxGeometry height="300" width="390" x="545" y="275" as="geometry" />
+        </mxCell>
+        <mxCell id="dGR3X8DVnyzm8ExxdQ5J-10" edge="1" parent="1" source="dGR3X8DVnyzm8ExxdQ5J-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" target="dGR3X8DVnyzm8ExxdQ5J-8" value="&amp;nbsp;1. Connection + Metadata Request&amp;nbsp;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="365" y="410" />
+              <mxPoint x="365" y="410" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dGR3X8DVnyzm8ExxdQ5J-12" edge="1" parent="1" source="dGR3X8DVnyzm8ExxdQ5J-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="dGR3X8DVnyzm8ExxdQ5J-4" value="&amp;nbsp;3. Can connect to the needed brokers&amp;nbsp;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="230" y="525" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dGR3X8DVnyzm8ExxdQ5J-1" parent="1" style="whiteSpace=wrap;html=1;" value="Kafka Client" vertex="1">
+          <mxGeometry height="110" width="130" x="165" y="395" as="geometry" />
+        </mxCell>
+        <mxCell id="dGR3X8DVnyzm8ExxdQ5J-2" parent="1" style="whiteSpace=wrap;html=1;" value="Broker 102" vertex="1">
+          <mxGeometry height="60" width="110" x="605" y="295" as="geometry" />
+        </mxCell>
+        <mxCell id="dGR3X8DVnyzm8ExxdQ5J-3" parent="1" style="whiteSpace=wrap;html=1;" value="Broker 102" vertex="1">
+          <mxGeometry height="60" width="110" x="805" y="295" as="geometry" />
+        </mxCell>
+        <mxCell id="dGR3X8DVnyzm8ExxdQ5J-4" parent="1" style="whiteSpace=wrap;html=1;" value="Broker 102" vertex="1">
+          <mxGeometry height="60" width="110" x="605" y="495" as="geometry" />
+        </mxCell>
+        <mxCell id="dGR3X8DVnyzm8ExxdQ5J-5" parent="1" style="whiteSpace=wrap;html=1;" value="Broker 102" vertex="1">
+          <mxGeometry height="60" width="110" x="805" y="495" as="geometry" />
+        </mxCell>
+        <mxCell id="dGR3X8DVnyzm8ExxdQ5J-11" edge="1" parent="1" source="dGR3X8DVnyzm8ExxdQ5J-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;" target="dGR3X8DVnyzm8ExxdQ5J-1" value="&amp;nbsp;2. List of all brokers&amp;nbsp;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="365" y="440" />
+              <mxPoint x="365" y="440" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dGR3X8DVnyzm8ExxdQ5J-8" parent="1" style="whiteSpace=wrap;html=1;" value="Broker 101&lt;div&gt;(bootstrap)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="110" x="565" y="395" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

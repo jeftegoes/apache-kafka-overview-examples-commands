@@ -1,0 +1,31 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.6.6 Chrome/144.0.7559.236 Electron/40.8.4 Safari/537.36" version="29.6.6">
+  <diagram name="Page-1" id="2hJsklnQPB-RaeV3UNhW">
+    <mxGraphModel dx="1224" dy="1226" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="8zMdEkc-CGsz4fT_yNMI-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fontSize=14;fillColor=#6a00ff;fontColor=#ffffff;strokeColor=#3700CC;" value="Broker 101" vertex="1">
+          <mxGeometry height="140" width="150" x="470" y="355" as="geometry" />
+        </mxCell>
+        <mxCell id="8zMdEkc-CGsz4fT_yNMI-2" parent="1" style="whiteSpace=wrap;html=1;fontSize=16;" value="&lt;b&gt;Partition 0&lt;/b&gt;&lt;div&gt;&lt;b&gt;Topic-A (Leader)&lt;/b&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="120" x="485" y="395" as="geometry" />
+        </mxCell>
+        <mxCell id="UQ23mY9viIs4J14Fhc_H-1" parent="1" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.star;fillColor=#f0a30a;strokeColor=#BD7000;fontColor=#000000;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="470" y="375" as="geometry" />
+        </mxCell>
+        <mxCell id="otLsLTXO8fknL92yB4ya-3" edge="1" parent="1" source="otLsLTXO8fknL92yB4ya-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;" target="8zMdEkc-CGsz4fT_yNMI-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="otLsLTXO8fknL92yB4ya-2" parent="1" style="whiteSpace=wrap;html=1;fillColor=#b1ddf0;strokeColor=#10739e;" value="Producer" vertex="1">
+          <mxGeometry height="60" width="120" x="230" y="405" as="geometry" />
+        </mxCell>
+        <mxCell id="otLsLTXO8fknL92yB4ya-5" edge="1" parent="1" source="otLsLTXO8fknL92yB4ya-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;" target="8zMdEkc-CGsz4fT_yNMI-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="otLsLTXO8fknL92yB4ya-4" parent="1" style="whiteSpace=wrap;html=1;fillColor=#b1ddf0;strokeColor=#10739e;" value="Consumer" vertex="1">
+          <mxGeometry height="60" width="120" x="750" y="405" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

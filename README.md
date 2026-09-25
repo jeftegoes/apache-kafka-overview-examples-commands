@@ -31,11 +31,12 @@
     - [6.3.5. Delivery semants for consumers](#635-delivery-semants-for-consumers)
 - [7. Brokers and Topics](#7-brokers-and-topics)
   - [7.1. Kafka brokers](#71-kafka-brokers)
-  - [7.2. Kafka broker discovery](#72-kafka-broker-discovery)
+  - [7.2. Kafka Broker Discovery](#72-kafka-broker-discovery)
 - [8. Topic replication](#8-topic-replication)
   - [8.1. Replication factor](#81-replication-factor)
   - [8.2. Concept of Leader for a Partition](#82-concept-of-leader-for-a-partition)
   - [8.3. Default producer and consumer behavior with leaders](#83-default-producer-and-consumer-behavior-with-leaders)
+    - [8.3.1. Kafka v2.4+](#831-kafka-v24)
 - [9. Producer Acknowledgements and Topic Durability](#9-producer-acknowledgements-and-topic-durability)
   - [9.1. Kafka topic durability](#91-kafka-topic-durability)
 - [10. Zookeeper](#10-zookeeper)
@@ -226,29 +227,33 @@
 
 - All the consumers in an application read data as a consumer groups.
 - Each consumer within a group reads from exclusive partitions.
+  ![Consumer Groups](/images/consumer-groups.png)
 
 ### 6.3.2. What if too many consumers?
 
 - If have more consumers than partitions, some consumers will be inactive.
+  ![Many Consumer Groups](/images/many-consumer-groups.png)
 
 ### 6.3.3. Multiple consumers on one topic
 
 - In Apache Kafka it is acceptable to have multiple consumer groups on the same topic.
-- To create distinct consumer groups, use the consumer property group.id.
+- To create distinct consumer groups, use the consumer property `group.id`.
+  ![Multiple Consumers on Topic](/images/multiple-consumers-one-topic.png)
 
 ### 6.3.4. Consumer offsets
 
 - Kafka stores the offsets at which a consumer group has been reading.
-- The offsets committed are in Kafka topic named `__consumer_offsets`
+- The offsets committed are in Kafka **topic** named `__consumer_offsets`
 - When a consumer in a group has processed data received from Kafka, it should be **periodically** committing the offsets (the Kafka broker will write to `__consumer_offsets`, not the group itself).
-- If a consumer dies, it will be able to read back from where it left off thanks to the committed consumer offsets!
+- If a consumer dies, it will be able to read back from where it left off.
+  ![Consumer offsets](/images/consumer-offsets.png)
 
 ### 6.3.5. Delivery semants for consumers
 
 - There are 3 delivery semantics if you choose to commit manually:
   - **At least once (usually preferred)**
     - Offsets are committed after the message is processed.
-    - if the processing goes wrong, the message will be read again.
+    - If the processing goes wrong, the message will be read again.
     - This can result in duplicate processing of messages. Make sure your processing is idempotent(i.e. processing again the messages won't impact your systems).
   - **At most once**
     - Offsets are committed as soon as messages are received.
@@ -266,13 +271,14 @@
 - Each broker contains certain topic partitions.
 - After connecting to any broker (called a bootstrap broker), you will be connected to the entire cluster (Kafka clients have smart mechanics for that).
 - A good number to get started is 3 brokers, but some big clusters have over 100 brokers.
-- **You only need to connect to one broker (any broker) and just provide the topic name you want to write to. Kafka Clients will route your data to the appropriate brokers and partitions for you!**
+- **We only need to connect to one broker (any broker) and just provide the topic name you want to write to. Kafka Clients will route our data to the appropriate brokers and partitions for us!**
 
-## 7.2. Kafka broker discovery
+## 7.2. Kafka Broker Discovery
 
-- Every Kafka broker is also called a "bootstrap server".
+- Every Kafka broker is also called a **"bootstrap server"**.
 - That means that **we only need to connect to one broker**, and the Kafka clients will know how to be connected to the entire cluster (smart clients).
 - Each broker knows about all brokers, topics and partitions (metadata).
+  ![Kafka Broker Discovery](/images/kafka-broker-discovery.png)
 
 # 8. Topic replication
 
@@ -281,20 +287,27 @@
 - Topics should have a replication factor > 1 (usually between 2 and 3).
 - This way if a broker is down, another broker can serve the data.
 - **Example:** Topic-A with 2 partitions and replication factor of 2.
+  ![Topic replication factor](/images/topic-replicator-factor.png)
 
 ## 8.2. Concept of Leader for a Partition
 
-- At any time only ONE broker can be a leader for a given partition.
+- At any time only ONE broker can be a **leader** for a given partition.
 - Producers can only send data to the broker that is **leader of a partition**.
 - The other brokers will replicate the data.
-- Therefore, each partition has one leader and multiple **ISR (in-sync replica)**.
+- Therefore, each partition has **one leader** and **multiple ISR (in-sync replica)**.
+  ![Concept of Leader for a Partition](/images/leader-partition.png)
 
 ## 8.3. Default producer and consumer behavior with leaders
 
 - Kafka Producers can only write to the leader broker for a partition.
 - Kafka Consumers by default will read from the leader broker for a partition.
+  ![Default producer and consumer behavior with leaders](/images/default-producer-consumer-behavior-leaders.png)
+
+### 8.3.1. Kafka v2.4+
+
 - Since Kafka 2.4 it is possible to configure consumers to read from the closest replica.
 - This may help improve latency, and also decrease network costs if using the cloud.
+  ![Kafka Consumer Replica Fetching](/images/kafka-consumer-replica-fetching.png)
 
 # 9. Producer Acknowledgements and Topic Durability
 
@@ -422,6 +435,8 @@
   - Use `snake_case`.
 
 # 13. Kafka Connect
+
+TODO: Content
 
 # 14. Commands
 
