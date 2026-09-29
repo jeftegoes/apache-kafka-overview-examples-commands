@@ -29,15 +29,16 @@ public class KafkaConsumerConfig {
         consumerConfigs.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, environment.getProperty("spring.kafka.bootstrap-servers"));
         consumerConfigs.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         consumerConfigs.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JacksonJsonDeserializer.class);
-        consumerConfigs.put(ConsumerConfig.GROUP_ID_CONFIG, uuid);
+        consumerConfigs.put(ConsumerConfig.GROUP_ID_CONFIG, environment.getProperty("spring.kafka.consumer.group-id"));
         consumerConfigs.put(JacksonJsonDeserializer.USE_TYPE_INFO_HEADERS, environment.getProperty("spring.kafka.consumer.properties.spring.json.use.type.headers"));
         consumerConfigs.put(JacksonJsonDeserializer.VALUE_DEFAULT_TYPE, environment.getProperty("spring.kafka.consumer.properties.spring.json.value.default.type"));
+//        consumerConfigs.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, environment.getProperty("spring.kafka.consumer.auto-offset-reset"));
 
         return new DefaultKafkaConsumerFactory<>(consumerConfigs);
     }
 
     @Bean
-    ConcurrentKafkaListenerContainerFactory<String, Object> kafkaListenerContainerFactory() {
+    public ConcurrentKafkaListenerContainerFactory<String, Object> kafkaListenerContainerFactory() {
         ConcurrentKafkaListenerContainerFactory<String, Object> factory = new ConcurrentKafkaListenerContainerFactory<>();
 
         factory.setConsumerFactory(consumerFactory());

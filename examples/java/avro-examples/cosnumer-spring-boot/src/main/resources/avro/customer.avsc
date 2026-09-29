@@ -1,6 +1,7 @@
 {
   "type": "record",
   "name": "Customer",
+  "namespace": "com.example",
   "doc": "Avro schema for a Customer",
   "fields": [
     {
