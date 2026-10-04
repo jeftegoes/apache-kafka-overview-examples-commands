@@ -20,6 +20,7 @@
   - [5.4. Kafka Message key hashing](#54-kafka-message-key-hashing)
   - [5.5. Sending Message Synchronously](#55-sending-message-synchronously)
   - [5.6. Sending Message Asynchronously](#56-sending-message-asynchronously)
+  - [5.7. Idempotent Producer](#57-idempotent-producer)
 - [6. Consumers and deserialization](#6-consumers-and-deserialization)
   - [6.1. Consumers](#61-consumers)
   - [6.2. Consumer deserializer](#62-consumer-deserializer)
@@ -29,6 +30,7 @@
     - [6.3.3. Multiple consumers on one topic](#633-multiple-consumers-on-one-topic)
     - [6.3.4. Consumer offsets](#634-consumer-offsets)
     - [6.3.5. Delivery semants for consumers](#635-delivery-semants-for-consumers)
+  - [6.4. Idempotent Consumer](#64-idempotent-consumer)
 - [7. Brokers and Topics](#7-brokers-and-topics)
   - [7.1. Kafka brokers](#71-kafka-brokers)
   - [7.2. Kafka Broker Discovery](#72-kafka-broker-discovery)
@@ -199,6 +201,14 @@
 
 ![Sending Message Synchronously](/images/sending-message-asynchronously.png)
 
+## 5.7. Idempotent Producer
+
+- An idempotent producer avoids duplicate messages in the log in the presence of failures and retries.
+- **Without Idempotent Producer**
+  ![Without Idempotent Producer](/images/without-idempotent-producer.png)
+- **With Idempotent Producer**
+  - ![With Idempotent Producer](/images/with-idempotent-producer.png)
+
 # 6. Consumers and deserialization
 
 ## 6.1. Consumers
@@ -261,6 +271,10 @@
   - **Exactly once**
     - For Kafka => Kafka workflow: Use the Transaction API (easy with Kafka Streams API).
     - For Kafka => External System workflows: Use an idempotent consumer.
+
+## 6.4. Idempotent Consumer
+
+TODO: CONTENT
 
 # 7. Brokers and Topics
 
