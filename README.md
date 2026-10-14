@@ -274,6 +274,8 @@
 
 ## 6.4. Idempotent Consumer
 
+- An idempotent Apache Kafka consumer is a consumer that can process the same message multiple times without causing any side effects or data inconsistencies.
+
 TODO: CONTENT
 
 # 7. Brokers and Topics
