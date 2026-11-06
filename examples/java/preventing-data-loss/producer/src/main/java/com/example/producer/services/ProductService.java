@@ -39,13 +39,11 @@ public class ProductService {
                 productId,
                 productCreatedEvent);
 
-        record.headers().add("messageId", UUID.randomUUID().toString().getBytes());
-
         SendResult<String, ProductEvent> result = kafkaTemplate.send(record).get();
 
-        logger.info("Partition: " + result.getRecordMetadata().partition());
-        logger.info("Topic: " + result.getRecordMetadata().topic());
-        logger.info("Offset: " + result.getRecordMetadata().offset());
+        logger.info("Partition: {}", result.getRecordMetadata().partition());
+        logger.info("Topic: {}", result.getRecordMetadata().topic());
+        logger.info("Offset: {}", result.getRecordMetadata().offset());
 
         logger.info("***** Returning product id");
 

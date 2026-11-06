@@ -31,6 +31,8 @@
     - [6.3.4. Consumer offsets](#634-consumer-offsets)
     - [6.3.5. Delivery semants for consumers](#635-delivery-semants-for-consumers)
   - [6.4. Idempotent Consumer](#64-idempotent-consumer)
+  - [6.5. Consumer Offset Reset Behavior](#65-consumer-offset-reset-behavior)
+    - [6.5.1. Replaying data for Consumers](#651-replaying-data-for-consumers)
 - [7. Brokers and Topics](#7-brokers-and-topics)
   - [7.1. Kafka brokers](#71-kafka-brokers)
   - [7.2. Kafka Broker Discovery](#72-kafka-broker-discovery)
@@ -277,6 +279,31 @@
 - An idempotent Apache Kafka consumer is a consumer that can process the same message multiple times without causing any side effects or data inconsistencies.
 
 TODO: CONTENT
+
+## 6.5. Consumer Offset Reset Behavior
+
+- A consumer is expected to read from a log continuously.
+- But if our application has a bug, our consumer can be down.
+- If Kafka has a retention of 7 days, and our consumer is down for more than 7 days, the offsets are "invalid".
+- **The behavior for the consumer is to then use**
+  - `auto.offset.reset=latest` - Will read from the end of the log.
+  - `auto.offset.reset=earliest` - Will read from the start of the log.
+  - `auto.offset.reset=none` - Will throw exception if no offset is found.
+- **Additionally, consumer offsets can be lost**
+  - If a consumer hasn't read new data in 1 day (Kafka < 2.0).
+  - If a consumer hasn't read new data in 7 days (Kafka >= 2.0).
+- This can be controlled by the broker setting `offset.retention.minutes`.
+
+### 6.5.1. Replaying data for Consumers
+
+- **To replay data for a consumer group**
+  - Take all the consumers from a specific group down.
+  - Use `kafka-consumer-groups` command to set offset to what you want.
+  - Restart consumers.
+- **Bottom line**
+  - Set proper data retention period & offset retention period.
+  - Ensure the auto offset reset behavior is the one you expect / want.
+  - Use replay capability in case of unexpected behavior.
 
 # 7. Brokers and Topics
 
